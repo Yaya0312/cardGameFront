@@ -16,7 +16,7 @@ function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
+            <Link color="inherit">
                 CardGame
             </Link>{' '}
             {new Date().getFullYear()}
@@ -40,7 +40,8 @@ export default function SignUp() {
 
     return (
         <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
+            <Container component="main" maxWidth="xs"
+            >
                 <CssBaseline />
                 <Box
                     sx={{
