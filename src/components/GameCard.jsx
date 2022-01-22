@@ -2,6 +2,7 @@ import {Card, CardActionArea, CardActions, CardContent, CardMedia} from "@mui/ma
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
+
 export default function GameCard(props) {
     return (
         <Card sx={{ maxWidth: 345 }}>
@@ -22,12 +23,16 @@ export default function GameCard(props) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
-                    Jouer
-                </Button>
-                <Button size="small" color="primary">
-                    Désactiver
-                </Button>
+                {
+                    props.playable ?
+                        <Button size="small" color="primary">Jouer</Button> :
+                        <Button size="small" color="primary" disabled>Indisponible</Button>
+                }
+                {
+                    props.disabled ?
+                        <Button size="small" variant="contained" color="success">Activer</Button> :
+                        <Button size="small" variant="contained" color="error" >Désactiver</Button>
+                }
             </CardActions>
         </Card>
     )
