@@ -1,7 +1,7 @@
 import GameCard from "../components/GameCard";
 import Grid from "@mui/material/Grid";
 import {Typography} from "@mui/material";
-
+import Footer from "../components/Footer";
 export default function Games() {
     let games = [
         {title: "Bataille", description: "La bataille un jeu épique", image: "https://images.assetsdelivery.com/compings_v2/julialemba/julialemba2004/julialemba200400011.jpg"},
@@ -13,15 +13,21 @@ export default function Games() {
             <Grid container justifyContent="center">
                 <Typography variant="h2">Jeux</Typography>
             </Grid>
-        <Grid container spacing={2} gap={2} margin={2}>
-            {games.map((e,i) => <GameCard
+        <Grid container spacing={2}>
+            {games.map((e,i) =><Grid item xs={4}> <GameCard
                 title={e.title}
                 description={e.description}
                 image={e.image}
                 playable={i % 2 !== 0}
                 disabled={i % 2 === 0}
-            />)}
+            /></Grid>)}
         </Grid>
+        <Grid container justifyContent="center">
+        <Footer></Footer>
+            </Grid>   
+               
         </Grid>
+        
+        
     )
 }
