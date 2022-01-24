@@ -7,6 +7,7 @@ import Games from "./Pages/Games";
 import Profil from "./Pages/Profil";
 import Janken from "./Pages/Games/Janken";
 import BlackJack from "./Pages/Games/BlackJack";
+import Battle from "./Pages/Games/Battle";
 
 export default function Routes() {
     return (
@@ -18,6 +19,7 @@ export default function Routes() {
             <Route path="/profil" component={Profil} exact />
             <Route path="/game/janken" component={Janken} exact />
             <Route path="/game/blackjack" component={BlackJack} exact />
+            <Route path="/game/battle" component={Battle} exact />
         </Switch>
     )
 }
