@@ -1,10 +1,30 @@
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
+import React, { useState } from "react";
+import Header from "../../components/Header";
+import Play from "../../components/Play";
+import JankenGame from "../../components/JankenGame";
+import Footer from "../../components/Footer";
+import { Switch, Route } from "react-router-dom";
 
-export default function Janken() {
-    return (
-        <Grid>
-            <Typography>Veuillez choisir </Typography>
-        </Grid>
-    )
+function App() {o
+  const [myChoice, setMyChoice] = useState("");
+  const [score, setScore] = useState(0);
+
+  return (
+    <>
+      <div className="container">
+        <Header score={score} />
+        <Switch>
+          <Route exact path="/">
+            <Play setMyChoice={setMyChoice} />
+          </Route>
+          <Route path="/game/janken">
+            <JankenGame myChoice={myChoice} score={score} setScore={setScore} />
+          </Route>
+        </Switch>
+      </div>
+      <Footer />
+    </>
+  );
 }
+
+export default App;
