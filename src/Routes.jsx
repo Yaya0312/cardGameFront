@@ -6,6 +6,7 @@ import Home from "./Pages/Home";
 import Games from "./Pages/Games";
 import Profil from "./Pages/Profil";
 import Janken from "./Pages/Games/Janken";
+import BlackJack from "./Pages/Games/BlackJack";
 
 export default function Routes() {
     return (
@@ -16,6 +17,7 @@ export default function Routes() {
             <Route path="/games" component={Games} exact />
             <Route path="/profil" component={Profil} exact />
             <Route path="/game/janken" component={Janken} exact />
+            <Route path="/game/blackjack" component={BlackJack} exact />
         </Switch>
     )
 }
