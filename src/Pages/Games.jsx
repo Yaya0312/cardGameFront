@@ -1,7 +1,6 @@
 import GameCard from "../components/GameCard";
 import Grid from "@mui/material/Grid";
 import {Typography} from "@mui/material";
-import Footer from "../components/Footer";
 export default function Games() {
     let games = [
         {title: "Bataille", description: "La bataille un jeu épique", image: "https://images.assetsdelivery.com/compings_v2/julialemba/julialemba2004/julialemba200400011.jpg"},
@@ -23,11 +22,7 @@ export default function Games() {
             /></Grid>)}
         </Grid>
         <Grid container justifyContent="center">
-        <Footer></Footer>
-            </Grid>   
-               
         </Grid>
-        
-        
+        </Grid>
     )
 }
