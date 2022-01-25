@@ -61,20 +61,19 @@ export default function Janken() {
             <Typography textAlign="center" variant="h5">Joueur</Typography>
             <img src={"/src/assets/janken/" + displayHit(userHit) + ".png"} width="150" height="180"/>
               <Typography textAlign="center" variant="h5">{displayHit(userHit)}</Typography>
+              <Typography textAlign="center" >Score {scorePlayer} </Typography>
+
           </Box>
           <Box item>
             <Typography textAlign="center" variant="h5">Ordinateur</Typography>
             <img src={"/src/assets/janken/" + displayHit(computerHit) + ".png"} width="150" height="180"/>
               <Typography textAlign="center" variant="h5">{displayHit(computerHit)}</Typography>
+              <Typography textAlign="center" >Score {scoreComputer} </Typography>
           </Box>
         </Grid>
-        <Box container>
-          <Typography textAlign="center" >Score Joueur {scorePlayer} </Typography>
-          <Typography textAlign="center" >Score Ordinateur {scoreComputer} </Typography>
-        </Box>
         <Grid justifyContent="center" container flexDirection="column">
           <Typography textAlign="center">Veuillez choisir votre coup</Typography>
-          <Box justifyContent="center" container>
+          <Box item alignSelf="center" >
             <ButtonGroup variant="contained" aria-label="outlined primary button group">
               <Button onClick={() => play(0)} >Pierre</Button>
               <Button onClick={() => play(1)} >Ciseau</Button>
