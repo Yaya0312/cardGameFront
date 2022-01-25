@@ -28,7 +28,7 @@ export default function Battle() {
         } else if (cardsUser[currentRound-1] < cardComputer[currentRound-1]) {
             setComputerScore(computerScore + 1);
             setResult("Vous avez perdu la manche");
-        } else {
+        } else if (currentRound > 0) {
             setResult("égalité");
         }
     }, [currentRound]);
