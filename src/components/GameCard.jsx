@@ -1,6 +1,7 @@
 import {Card, CardActionArea, CardActions, CardContent, CardMedia} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import {Link} from "react-router-dom";
 
 
 export default function GameCard(props) {
@@ -25,7 +26,7 @@ export default function GameCard(props) {
             <CardActions>
                 {
                     props.playable ?
-                        <Button size="small" color="primary">Jouer</Button> :
+                        <Link to={props.link}><Button size="small" color="primary">Jouer</Button></Link> :
                         <Button size="small" color="primary" disabled>Indisponible</Button>
                 }
                 {
