@@ -41,7 +41,7 @@ export default function Janken() {
         } else if (((userHit - computerHit) === 1) || ((userHit - computerHit) === -2)) {
             setResult("Vous avez perdu la manche")
             setScoreComputer(scoreComputer + 1);
-        } else if (userHit == computerHit) {
+        } else if (userHit === computerHit) {
             setResult("égalité");
         } else {
             setResult("error");
