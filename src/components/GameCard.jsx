@@ -3,7 +3,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import {Link} from "react-router-dom";
 
-
 export default function GameCard(props) {
     return (
         <Card sx={{ maxWidth: 345 }}>
