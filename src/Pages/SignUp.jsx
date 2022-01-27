@@ -10,6 +10,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import AccountApi from "../api/AccountApi";
 
 function Copyright(props) {
     return (
@@ -30,11 +31,14 @@ export default function SignUp() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        // eslint-disable-next-line no-console
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+        AccountApi.register(
+            data.get('firstName'),
+            data.get('lastName'),
+            data.get('password'),
+            data.get('login')
+        ).then( r => history.push("/signIn"))
+            .catch(error => { console.log("error");
+            });
     };
 
     return (
@@ -83,9 +87,9 @@ export default function SignUp() {
                                 <TextField
                                     required
                                     fullWidth
-                                    id="email"
+                                    id="login"
                                     label="adresse mail"
-                                    name="email"
+                                    name="login"
                                     autoComplete="email"
                                 />
                             </Grid>

@@ -1,6 +1,8 @@
 import GameCard from "../components/GameCard";
 import Grid from "@mui/material/Grid";
 import {Typography} from "@mui/material";
+import Header from "../components/Header";
+import React from "react";
 export default function Games() {
     let games = [
         {title: "Bataille", description: "La bataille un jeu épique", link: "game/battle", image: "https://images.assetsdelivery.com/compings_v2/julialemba/julialemba2004/julialemba200400011.jpg"},
@@ -8,7 +10,9 @@ export default function Games() {
         {title: "Janken", description: "Pierre Feuille Ciseau un jeu pas si simple", link: "game/janken", image: "https://media.istockphoto.com/vectors/rockpaperscissors-vector-cartoon-hand-design-vector-id1026097608?k=20&m=1026097608&s=612x612&w=0&h=Wn4cu4rXlqL_Id41UkezBvh8r4gqJ6fGup4LaoUCfTI="}
     ]
     return (
-        <Grid>
+        <>
+            <Header/>
+            <Grid>
             <Grid container justifyContent="center">
                 <Typography variant="h2">Jeux</Typography>
             </Grid>
@@ -25,5 +29,6 @@ export default function Games() {
         <Grid container justifyContent="center">
         </Grid>
         </Grid>
+        </>
     )
 }

@@ -29,11 +29,6 @@ export default function GameCard(props) {
                         <Link to={props.link}><Button size="small" color="primary">Jouer</Button></Link> :
                         <Button size="small" color="primary" disabled>Indisponible</Button>
                 }
-                {
-                    props.disabled ?
-                        <Button size="small" variant="contained" color="success">Activer</Button> :
-                        <Button size="small" variant="contained" color="error" >Désactiver</Button>
-                }
             </CardActions>
         </Card>
     )
