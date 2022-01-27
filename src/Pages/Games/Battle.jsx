@@ -5,7 +5,7 @@ import * as React from "react";
 import BattleApi from "../../api/BattleApi";
 
 export default function Battle() {
-    const { data, error } = useSWR('battleGame', () => BattleApi.getDecks(20))
+    const { data, error } = useSWR('battleGame', () => BattleApi.getDecks(8))
     if (!data) return <CircularProgress/>;
     if (error) return "Impossible de charger le jeux de bataille";
     const dataInfo = data;

@@ -3,6 +3,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import {ButtonGroup, Typography} from "@mui/material";
 import Button from "@mui/material/Button";
+import JankenApi from "../../api/JankenApi";
 
 const url = "https://raw.githubusercontent.com/tomjamesallen/blackjack-react/master/src/public/img/cards";
 
@@ -16,37 +17,30 @@ export default function Janken() {
     const [currentRound, setCurrentRound] = useState(0);
     const maxRound = 3;
 
-    function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
-
-    function play(hit) {
+    async function play(hit) {
         if (currentRound === maxRound) {
             return;
         }
         setCurrentRound(currentRound + 1);
         setUserHit(hit);
-        // request api;
-        let random = getRandomInt(0,2);
-        setComputerHit(random);
-    }
-
-    useEffect(() => {
-        console.log(userHit, computerHit);
-        if (((userHit - computerHit) === -1) || ((userHit - computerHit) === 2)) {
-            setResult("Vous avez gagné la manche")
-            setScorePlayer(scorePlayer + 1);
-        } else if (((userHit - computerHit) === 1) || ((userHit - computerHit) === -2)) {
-            setResult("Vous avez perdu la manche")
-            setScoreComputer(scoreComputer + 1);
-        } else if (userHit === computerHit) {
-            setResult("égalité");
-        } else {
-            setResult("error");
+        let {computerHit, result} = await JankenApi.play(hit);
+        setComputerHit(computerHit);
+        switch (result) {
+            case "COMPUTER":
+                setResult("Vous avez perdu la manche")
+                setScoreComputer(scoreComputer + 1);
+                break;
+            case "PLAYER":
+                setResult("Vous avez gagné la manche")
+                setScorePlayer(scorePlayer + 1);
+                break;
+            case "DRAW":
+                setResult("égalité");
+                break;
+            default:
+                setResult("error");
         }
-    }, [userHit, computerHit])
+    }
 
     const displayHit = (hit) => hit === -1 ? "default" : choice[hit]
 

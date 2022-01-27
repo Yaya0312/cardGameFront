@@ -1,3 +1,4 @@
+import {requesterWithToken, url} from "./serverConfig";
 
 
 function getRandomInt(min, max) {
@@ -9,16 +10,10 @@ function getRandomInt(min, max) {
 export default class JankenApi {
 
     static play(userHit) {
-        const computerHit = getRandomInt(0,2);
-        let winner = "error";
-        if (((userHit - computerHit) === -1) || ((userHit - computerHit) === 2)) {
-            winner = "PLAYER";
-        } else if (((userHit - computerHit) === 1) || ((userHit - computerHit) === -2)) {
-            winner = "COMPUTER";
-        } else if (userHit === computerHit) {
-            winner = "DRAW";
-        }
-        return { computerHit: computerHit, winner: winner};
+        return requesterWithToken.get(`${url}/janken/play/${userHit}`).then(response => {
+                return response.data;
+            }
+        );
     }
 
 }
